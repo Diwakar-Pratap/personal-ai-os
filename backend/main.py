@@ -42,3 +42,10 @@ app.include_router(chat_router)
 @app.get("/health")
 async def health():
     return {"status": "ok", "version": "1.0.0"}
+
+import os
+from fastapi.staticfiles import StaticFiles
+
+frontend_out = os.path.join(os.path.dirname(__file__), "..", "frontend", "out")
+if os.path.exists(frontend_out):
+    app.mount("/", StaticFiles(directory=frontend_out, html=True), name="frontend")

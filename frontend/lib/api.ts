@@ -3,7 +3,7 @@
 
 import { Session, Message } from '@/types';
 
-const BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8002';
+const BASE = process.env.NEXT_PUBLIC_API_URL !== undefined ? process.env.NEXT_PUBLIC_API_URL : 'http://localhost:8002';
 
 // ── Sessions ──────────────────────────────────────────────────
 
